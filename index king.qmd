@@ -1,0 +1,129 @@
+---
+title: "Analisis Pengaruh Tingkat Ekspor Kapas Terhadap Pertumbuhan GDP di Indonesia Pada Tahun 2012-2021"
+subtitle: "Metode Penelitian Politeknik APP Jakarta"
+author: "Kingking Suaib"
+date: 2023-01-23
+number-sections: true
+format:
+  html: default
+  docx: default
+editor: visual
+---
+
+![](poltekapp.jpg)
+
+## Pendahuluan
+
+### Latar belakang
+
+Indonesia menonjol sebagai salah satu pengekspor kapas terbesar di dunia, di mana produksi kapas yang tinggi memberikan kontribusi penting pada sektor pertanian negara ini. Dengan meningkatnya permintaan kapas, baik di pasar lokal maupun global, pertumbuhan ekspor kapas memiliki potensi untuk menghasilkan dampak positif pada pertumbuhan ekonomi Indonesia.
+
+Dalam beberapa tahun terakhir, sektor ekspor kapas telah menjadi bagian integral dari struktur ekonomi Indonesia, melibatkan sejumlah besar petani dan pelaku usaha dalam proses produksi dan distribusi kapas. Tingginya tingkat ekspor kapas tidak hanya dapat menciptakan peluang ekonomi baru, tetapi juga dapat meningkatkan pendapatan petani, memberikan kontribusi yang signifikan terhadap pertumbuhan Produk Domestik Bruto (GDP) negara.
+
+Pengaruh tingkat ekspor kapas terhadap pertumbuhan Produk Domestik Bruto (GDP) di Indonesia sangat penting mengingat bahwa ekspor merupakan salah satu pendorong utama pertumbuhan ekonomi. Dengan meningkatnya permintaan kapas di pasar global, peningkatan ekspor kapas dapat berperan dalam meningkatkan pendapatan negara dan menciptakan lapangan kerja baru. Selain itu, pengembangan sektor ekspor kapas dapat mendorong diversifikasi ekonomi dan memberikan ketahanan ekonomi terhadap perubahan kondisi pasar global.
+
+### Ruang lingkup
+
+Penelitian ini menggunakan data dengan subjek Tingkat Ekspor Kapas Terhadap pertumbuhan GDP di Indonesia. Data yang digunakan diambil dari badan pusat statistik selama sembilan tahun terakhir (2012-2021). Dimana data ini kemudian dibandingkan dengan data nilai GDP di Indonesia.
+
+### Rumusan masalah
+
+Bagaimana keterkaitan antara tingkat ekspor kapas terhadap pertumbuhan Produk Domestik Bruto (GDP) di Indonesia?
+
+### Tujuan dan manfaat penelitian
+
+Memberikan rekomendasi kebijakan yang dapat meningkatkan kontribusi sektor kapas terhadap pertumbuhan ekonomi secara berkelanjutan.
+
+### Package
+
+Packages yang digunakan antara lain sebagai berikut:
+
+```{r}
+#| warning: false
+#| echo: true
+library(tidyverse)
+library(readxl)
+library(WDI)
+```
+
+## Studi pustaka
+
+Jurnal berjudul *"Analisis Pengaruh Tingkat Ekspor Kapas Terhadap pertumbuhan GDP di Indonesia Pada Tahun 2012-2021*" ini dibuat dengan merujuk pada fakta tersedianya sumber daya alam mumpuni di Indonesia, pada komoditi kapas sebagai aspek utama dalam ekspor sektor bahan baku dan bagaimana dampak bagi pertumbuhan GDP di Indonesia.
+
+Menurut data Badan Pusat Statistik (2012-2021) ditemukan bahwa ekspor tertinggi kapas pada tahun 2015 dengan nilai ekspor USD 211.515.000 dan ekspor kapas terendah pada tahun 2017 dengan nilai ekspor USD 18.729.000.
+
+Menurut Astuti Purnawati (2013) dan Sri Fatmawati (2013), ekspor adalah kegiatan menjual barang/jasa dari daerah pabean sesuai peraturan dan undang-undang yang berlaku. Daerah pabean yang dimaksud ialah seluruh wilayah nasional dari suatu negara, di mana dipungut bea masuk dan bea keluar untuk semua barang-barang yang melewati wilayah tersebut. 
+
+Untuk itulah, dalam menanggapi bagaimana dampak nilai ekspor kapas terhadap pertumbuhan GDP di Indonesia. Jurnal ini dibuat.
+
+## Metode penelitian
+
+### Data Nilai Ekspor Kapas Terhadap Pertmbuhan GDP di Indonesia.
+
+| Tahun | Nilai Ekspor (CNY) | Pertumbuhan GDP |
+|-------|--------------------|-----------------|
+| 2012  | 71150,6            | 158290165,58    |
+| 2013  | 32764,73           | 72897201,83     |
+| 2014  | 64610,62           | 143750079,58    |
+| 2015  | 142800,12          | 317711393,63    |
+| 2016  | 84348,72           | 187664744,28    |
+| 2017  | 12644,51           | 28132362,68     |
+| 2018  | 18075,93           | 40216556,05     |
+| 2019  | 35754,21           | 79548389,92     |
+| 2020  | 62481,93           | 139014037,1     |
+| 2021  | 59922,51           | 133319670,78    |
+
+**Sumber data badan pusat statistik (FOB:USD 000)**
+
+```{r}
+#| label: fig-mpg
+#| fig-cap: "City and highway mileage for 38 popular models of cars.Color by number of cylinders"
+library(readxl)
+dat<-read_excel("latihan.xlsx")
+reg<-lm(Y~X,data=dat)
+plot(dat$Y,dat$X,ylab="Nilai Ekspor",xlab="Pertumbuhan GDP" )
+```
+
+### Metode analisis
+
+Teknik analisis yang digunakan dalam penelitian ini adalah teknik kuantitatif dan penjabaran deskriptif. Teknik analisis kuantitatif merupakan analisis yang dilakukan dengan perhitungan angka-angka yang faktor yang mempengaruhi indeks nilai ekspor kapas terhadap pertumbuhan GDP di Indonesia . Metode yang dipilih adalah regresi univariat atau Ordinary Least Square (OLS) dengan 1 variabel independen. Penelitian ini bermaksud mencari hubungan antara pertumbuhan GDP dan nilai ekspor. Spesifikasi yang dilakukan adalah:
+
+$$
+y_{t}=\beta_0 + \beta_1 x_t+\mu_t
+$$ Dimana: Yt adalah nilai ekspor terhadap pertumbuhan GDP., β0 adalah koefisien konstanta; β1 adalah parameter; Xt adalah nilai ekspor dan μi adalah error term.
+
+## Pembahasan
+
+### Pembahasan masalah
+
+| Variabel  | Coeficient | Std.Error  | t.value    | Prob          |
+|-----------|------------|------------|------------|---------------|
+| Intercept | -445.60097 | 2115.07477 | -0.211     | 0.838         |
+| X         | 2224.85745 | 0.03083    | 72173..809 | \<2e-16\*\*\* |
+
+| R-Squared          | 1          |
+|--------------------|------------|
+| Adjusted R-Squared | 1          |
+| F-Statistic        | 5.209e+09  |
+| Prob (F-statistic) | \< 2.2e-16 |
+
+: Ekspor kapas berpengaruh terhadap pertumbuhan GDP di Indonesia. Di tunjukkan dengan di lihat dari probabilitas X ( Nilai Ekspor) yang signifikan. Dimana nilai ekspor sering menjadi faktor yang dapat mendorong naik dan turunnya perekonomian suatu negara. Nilai koefisien ekspor sebesar 22224.85745 yang berarti kenaikan perubahan nilai ekspor berpengaruh terhadap pertumbuhan GDP. Dengan hasil ini maka dapat di simpulkan bahwa pendapatan ekspor berpengaruh positif terhadap nilai pertumbuhan GDP di Indonesia.
+
+### Analisis masalah
+
+Hasil regresinya adalah
+
+```{r}
+library(readxl)
+dat<-read_excel("latihan.xlsx")
+reg<-lm(Y~X,data=dat)
+summary(reg)
+```
+
+## Kesimpulan
+
+Berdasarkan data hasil analisis kuantitatif yang telah dilakukan, setelah diamati pengaruh nilai ekspor kapas yang ada di Indonesia berpengaruh positif terhadap pertumbuhan GDP di Indonesia. Kapas ini merupakan salah satu komoditas bahan baku utama yang memiliki volume ekspor terbesar di Indonesia. Oleh sebab itu apabila ekspor kapas di Indonesia meningkat maka berpengaruh positif terhadap pertumbuhahan GDP dan mempengaruhi pertumbuhan GDP di Indonesia.
+
+## Referensi
+
+*Badan Pusat Statistik*. (n.d.). Retrieved January 23, 2024, from <https://ntt.bps.go.id/indicator/8/1077/1/nilai-ekspor-menurut-kelompok-komoditas.html> Pengertian dan Istilah. (2023, October 12). Arti Ekspor Menurut Ahli, Manfaat, dan Jenisnya. <https://kumparan.com/pengertian-dan-istilah/arti-ekspor-menurut-ahli-manfaat-dan-jenisnya-21Me9AvnfkT/full>[/](https://www.gramedia.com/literasi/ekspor-impor/){.uri} Ari Budi Basuki. (2023). <https://journal.unnes.ac.id/sju/index.php/edaj> "Faktor-Faktor yang Mempengaruhi Impor Kapas di Indonesia" Iwan Hermawan, Lukman Adam. (2022, July 11). "ANALISIS FAKTOR-FAKTOR YANG MEMPENGARUHI PENAWARAN DAN PERMINTAAN SERAT KAPAS DI INDONESIA". <https://jurnal.dpr.go.id/index.php/ekp/article/view/77/44>. Retrieved January 23, 2024 *Penelusuran Google*. (n.d.). Retrieved January 23, 2024, from <https://www.google.com/search?q=Pengaruh+Tingkat+Ekspor+Kapas+Terhadap+Pertumbuhan+GDP+di+Indonesia&rlz=1C1GCEA_enID1082ID1082&oq=peng&gs_lcrp=EgZjaHJvbWUqCAgAEEUYJxg7MggIABBFGCcYOzIICAEQRRgnGDsyBggCEEUYOzIGCAMQRRg7MgYIBBBFGDkyBggFEEUYPDIGCAYQRRg8MgYIBxBFGDzSAQgyNDQyajBqOagCALACAA&sourceid=chrome&ie=UTF-8> Indonesia Ekspor Kapas Senilai US\$ 15.544 Ribu. Retrieved January 23, 2024, from <https://databoks.katadata.co.id/datapublish/2022/12/16/indonesia-ekspor-kapas-senilai-us-15-544-ribu-ke-honduras>
